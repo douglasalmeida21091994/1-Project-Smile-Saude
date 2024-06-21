@@ -1,0 +1,267 @@
+/* Reset de padding, margin e box-sizing */
+* {
+    padding: 0;
+    margin: 0;    
+}
+
+/* Estilo geral para body e html */
+body {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Arial", "Open Sans", sans-serif;
+    color: #202020;
+    overflow-y: hidden;
+    background: linear-gradient(135deg, #4b3fc5 0%, rgb(79, 145, 214) 100%);
+    padding: 20px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#ANS {
+    display: inline-block;
+    position: fixed;
+    left: 5px;
+    writing-mode: vertical-rl;
+    font-size: 8px;
+    font-weight: lighter;
+    border: 1px solid #a0a0a08a;
+    border-radius: 3px;
+    background-color: #111111;
+    color: #fff;
+    padding: 10px 3px;
+    letter-spacing: 2px;
+}
+
+#ANS2 {
+    display: none; 
+}
+
+/* Estilo do container principal */
+#container {
+    border-radius: 10px;
+    background-color: #fff;
+    max-width: 800px;    
+    padding: 10px;    
+    border: 1px solid grey;
+    box-shadow: 0 0 5px #00000077;
+    padding-bottom: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#confirm-check:checked + #container {
+    border-radius: 8px;
+  }
+
+/* Estilo da mensagem inicial */
+#mensagem {
+    background-color: #fffefe;
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    color: #111111;
+    box-shadow: 0 0 5px #00000077;
+    font-size: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+/* Estilo do parágrafo na mensagem inicial */
+#mensagem p {
+    margin-bottom: 10px; 
+    text-align: justify;   
+}
+
+/* Estilo do link na mensagem inicial */
+#read-link {    
+    font-weight: normal;
+    text-decoration: none;
+    color: #111111;
+    margin: 10px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilo do conteúdo principal */
+#content {
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+/* Estilo do título */
+#content h1 {
+    letter-spacing: 1.5px;
+    color: #303031ef;
+    margin-top: 10px;
+}
+
+/* Estilo dos parágrafos */
+#content p {
+    text-align: justify;
+    text-indent: 20px;
+    margin: 15px;
+}
+
+/* Estilo da confirmação de leitura */
+#confirmacao {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Estilo do label */
+label {
+    font-weight: bold;
+}
+
+/* Estilo da seção de download */
+#doc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilo do botão de download */
+.download-btn {
+    display: none;
+    width: 50%;
+    padding: 8px 30px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4a3fc5e1;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    letter-spacing: 1px;
+    justify-content: center;
+}
+
+/* Efeito de hover no botão de download */
+.download-btn:hover {
+    background-color: #4a3fc5;
+}
+
+#alert {
+    line-height: 34px;    
+}
+
+/* Estilo do parágrafo de alerta */
+#doc p {
+    display: none;
+    color: red;
+}
+
+/* Estilo do rodapé */
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #ffffff94;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 520px) {
+
+    body {
+        padding: 10px;
+    }
+    #container {
+        border-radius: 10px;
+        width: 90%;
+        box-shadow: none;
+        height: auto;        
+    }
+    
+    #content {
+        width: 100%;
+        height: auto;
+        overflow-y: auto;        
+    }
+
+    #content p {
+        text-indent: 10px;
+        margin: 10px;
+    }
+
+    #alert {
+        line-height: 48px;    
+    }
+
+    .download-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+        width: 100px;
+    }
+
+    #confirmacao {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .download-btn {
+        width: 100%;
+        padding: 10px 30px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #4a3fc5c4;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;        
+        cursor: pointer;
+        letter-spacing: 1px;
+        justify-content: center;
+    }
+
+    #mensagem {
+        width: 90%;        
+    }
+
+    #footer {
+        display: none;
+    }
+
+    #ANS {
+        display: none;     
+    }
+
+    #ANS2 {
+        display: inline-block;
+        position: fixed;
+        bottom: 0px;       
+        margin-bottom: -5px;
+        font-size: 8px;
+        font-weight: lighter;        
+        border-radius: 3px;        
+        color: #fff;
+        padding: 10px 3px;
+        letter-spacing: 2px;
+    }
+}
