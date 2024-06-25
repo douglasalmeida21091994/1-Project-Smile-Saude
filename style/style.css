@@ -21,7 +21,7 @@ body {
 /* Estilo do container principal */
 #container {
     max-width: 900px;
-    height: auto;
+    height: 100vh;
     padding: 10px;
     background: #fff;
     border-radius: 8px;
