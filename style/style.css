@@ -355,12 +355,13 @@ body, html {
 #content h2 {
     opacity: .7;
     font-size: 1.2rem;
+    margin: 5px;
 } 
 
 #content p {
     text-align: justify;
     text-indent: 20px;
-    margin: 15px;
+    margin: 5px;
     transition: all 0.3s ease;
 }
 
@@ -515,7 +516,7 @@ label {
     }
 
     #content h1 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     #content h2 {
