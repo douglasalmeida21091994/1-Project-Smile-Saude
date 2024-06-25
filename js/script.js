@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         checkboxWrapper.checked = true;
         checkboxWrapper.disabled = true;
     }
+    
     if (localStorage.getItem('confirmCheckChecked') === 'true') {
         confirmCheck.checked = true;
         confirmCheck.disabled = true;
