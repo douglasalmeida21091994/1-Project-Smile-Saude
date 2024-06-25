@@ -9,12 +9,14 @@
 body, html {
     font-family: Arial, sans-serif;
     height: 100%;
+    width: 100%;
     background: linear-gradient(135deg, #4b3fc5 0%, rgb(79, 145, 214) 100%);
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Alterado de auto para hidden */
+    padding: 15px 0px;
 }
 
 /* Estilo do container principal */
