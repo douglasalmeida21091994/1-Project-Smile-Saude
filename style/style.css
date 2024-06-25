@@ -15,8 +15,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Alterado de auto para hidden */
-    padding: 35px;
+    overflow: hidden; /* Alterado de auto para hidden */    
 }
 
 /* Estilo do container principal */
@@ -488,7 +487,7 @@ label {
 
 @media (max-width: 768px) {
     body {
-        padding: 20px 10px;
+        padding: 30px 10px;
     }
 
     #mensagem h2 {
