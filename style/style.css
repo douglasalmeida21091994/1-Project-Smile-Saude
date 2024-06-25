@@ -20,7 +20,7 @@ body, html {
 
 /* Estilo do container principal */
 #container {
-    max-width: 900px;
+    max-width: 910px;
     max-height: 100vh; /* Adicionado max-height */
     padding: 10px;
     background: #fff;
@@ -38,11 +38,10 @@ body, html {
 
 #container::before {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;    
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
     background-image: url(../img/smile-removebg-preview.png);
     background-size: contain;
     background-repeat: no-repeat;
@@ -106,18 +105,32 @@ body, html {
 
 #mensagem h1 {
     opacity: .9;
+    
 }
 
 #mensagem h2 {
-    margin-bottom: 10px;
+    margin: 10px 0px;
     opacity: .7;
+    font-size: 1.2rem;
 }
 
 #mensagem p {
-    margin-bottom: 10px;
     text-align: justify;
     text-indent: 20px;
+    margin: 10px;
+    transition: all 0.3s ease;
+
 }
+
+#smile {
+    margin-bottom: 15px;
+}
+
+#smile p {
+    text-align: center;
+    opacity: .8;
+}
+
 
 #mensagem h2 a {
     text-decoration: none;
@@ -202,13 +215,14 @@ body, html {
 }
 
 .checkbox-wrapper .cbx:hover span:first-child {
-    border-color: #4a3fc5bb;
+    border-color: #4a3fc5bb;    
 }
 
 .checkbox-wrapper .inp-cbx:checked+.cbx span:first-child {
     border-color: #4a3fc5bb;
     background: #4a3fc5bb;
     animation: check-15 0.6s ease;
+    
 }
 
 .checkbox-wrapper .inp-cbx:checked+.cbx span:first-child svg {
@@ -233,7 +247,7 @@ body, html {
 
 @keyframes check-15 {
     50% {
-        transform: scale(1.2);
+        transform: scale(1.2);        
     }
 }
 
@@ -337,6 +351,11 @@ body, html {
     color: #303031ef;
     margin-top: 10px;
 }
+
+#content h2 {
+    opacity: .7;
+    font-size: 1.2rem;
+} 
 
 #content p {
     text-align: justify;
@@ -485,11 +504,19 @@ label {
     transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-   
+@media (max-width: 768px) {  
+    
+    body {
+        padding: 5px
+    }
     #mensagem h2 {
         text-align: justify;
         font-size: 1.1rem;
+    }
+
+    #content h2 {
+        font-size: 1.1rem;
+        text-align: justify;
     }
 
     #confirma {
@@ -504,7 +531,7 @@ label {
         width: 100%;        
         box-shadow: none;
         height: auto;
-        max-height: 100vh;
+        max-height: 100vh;        
     }
 
     #content {
