@@ -270,6 +270,7 @@ body {
     overflow: hidden;
     font-size: 15px;
     margin-left: 15px;
+    cursor: pointer;
 }
 
 .button.disabled2 {
@@ -381,6 +382,7 @@ label {
     border: none;
     border-radius: 5px;
     width: 250px;
+    cursor: pointer;
     transition: all 0.6s ease-in-out;
 }
 
@@ -487,7 +489,7 @@ label {
 
 @media (max-width: 768px) {
     body {
-        padding: 0 10px;
+        padding: 20px 10px;
     }
 
     #mensagem h2 {
@@ -551,11 +553,7 @@ label {
     .buttonDownload {
         width: 80%;
         margin: 0px 10px;
-    }
-
-    #mensagem {        
-
-    }
+    }    
 
     #footer {
         display: none;
