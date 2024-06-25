@@ -1,24 +1,19 @@
 document.getElementById("read-link").addEventListener("click", function(event) {
     event.preventDefault();
     document.getElementById("mensagem").style.display = "none";
-    document.getElementById("container").style.display = "flex";
-    document.querySelector('.download-btn').style.display = "none";
-    document.getElementById("alert").style.display = "block";
-    document.getElementById("footer").style.display = "none";
+    document.getElementById("container").style.display = "flex";     
 
     getIP();
 });
 
 document.getElementById("confirm-check").addEventListener("change", function() {
-    const container = document.getElementById("container");
+    const downloadButtons = document.querySelectorAll('.download-btn');    
 
     if (this.checked) {
-        document.querySelector('.download-btn').style.display = "flex";
-        document.getElementById("alert").style.display = "none";
-        container.style.borderRadius = "8px";
+        downloadButtons.forEach(button => button.classList.remove("disabled"));        
     } else {
-        document.querySelector(".download-btn").style.display = "none";
-        document.getElementById("alert").style.display = "block";
+        downloadButtons.forEach(button => button.classList.add("disabled"));  
+          
     }
 });
 

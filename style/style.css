@@ -1,43 +1,66 @@
 /* Reset de padding, margin e box-sizing */
 * {
     padding: 0;
-    margin: 0;    
+    margin: 0;
+    box-sizing: border-box;
 }
 
 /* Estilo geral para body */
 body {
     font-family: Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;    
     height: 100vh;
-    background: linear-gradient(135deg,  #4b3fc5 0%,rgb(79,145,214) 100%);
+    background: linear-gradient(135deg, #4b3fc5 0%, rgb(79, 145, 214) 100%);
     color: #333;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;   
-    overflow-y: hidden;
+    align-items: center;
+    overflow-y: auto;
 }
-
 
 /* Estilo do container principal */
 #container {
-    max-width: 600px;   
-    height: auto;    
+    max-width: 900px;
+    height: auto;
     padding: 10px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    box-sizing: border-box;
     overflow: auto;
-    
-    margin: 20px;    
+    margin: 20px;
     display: none;
-    flex-direction: column;   
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/smile-removebg-preview.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    pointer-events: none;
+    /* Permite clicar nos elementos dentro do container */
+    border-radius: 8px;
+}
+
+#container h1 {
+    text-align: center;
+    word-wrap: break-word;
+    /* Quebrar as palavras se a tela for menor */
+    overflow-wrap: break-word;
+    width: 100%;
+    margin: 0;
+    transition: all 0.3s ease;
 }
 
 #ANS {
@@ -53,42 +76,42 @@ body {
     color: #fff;
     padding: 10px 3px;
     letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
 
 #ANS2 {
-    display: none; 
+    display: none;
+    transition: all 0.3s ease;
 }
 
-#confirm-check:checked + #container {
+#confirm-check:checked+#container {
     border-radius: 8px;
-  }
+}
 
 /* Estilo da mensagem inicial */
 #mensagem {
     background-color: #fffefe;
     width: 100%;
-    max-width: 450px;
+    max-width: 800px;
     padding: 15px;
-    height: auto;
     border: none;
     border-radius: 5px;
     text-align: center;
     color: #111111;
     box-shadow: 0 0 5px #00000077;
     font-size: 16px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
-/* Estilo do parágrafo na mensagem inicial */
 #mensagem p {
-    margin-bottom: 10px; 
-    text-align: justify;   
+    margin-bottom: 10px;
+    text-align: justify;
 }
 
-/* Estilo do link na mensagem inicial */
-#read-link {    
+#read-link {
     font-weight: normal;
     text-decoration: none;
     color: #111111;
@@ -97,7 +120,75 @@ body {
     text-align: center;
 }
 
-/* Estilo do conteúdo principal */
+.button {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    background-color: rgb(0 107 179);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    gap: 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+}
+
+.button:hover .icon {
+    transform: translate(4px);
+}
+
+.button:hover::before {
+    animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0) 70%);
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+}
+
+@keyframes shine {
+    0% {
+        left: -100px;
+    }
+
+    60% {
+        left: 100%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+
 #content {
     text-align: center;
     height: auto;
@@ -105,74 +196,82 @@ body {
     padding-top: 15px;
 }
 
-/* Estilo do título */
 #content h1 {
     letter-spacing: 1.5px;
     color: #303031ef;
     margin-top: 10px;
 }
 
-/* Estilo dos parágrafos */
 #content p {
     text-align: justify;
     text-indent: 20px;
     margin: 15px;
+    transition: all 0.3s ease;
 }
 
-/* Estilo da confirmação de leitura */
 #confirmacao {
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
+    transition: all 0.3s ease;
 }
 
-/* Estilo do label */
 label {
     font-weight: bold;
 }
 
-/* Estilo da seção de download */
 #doc {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
+    margin: 10px 0px;
 }
 
-/* Estilo do botão de download */
 .download-btn {
-    display: none;
-    width: 50%;
+    display: flex;
+    text-align: center;
+    width: 250px;
     padding: 8px 30px;
     font-size: 16px;
-    color: #fff;
-    background-color: #4a3fc5e1;
+    font-weight: 500;
+    color: #4a3fc5e1;
+    background-color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    border: 1px solid #4a3fc5e1;
+    transition: all 0.3s ease-in;
     cursor: pointer;
     letter-spacing: 1px;
     justify-content: center;
 }
 
-/* Efeito de hover no botão de download */
 .download-btn:hover {
     background-color: #4a3fc5;
+    color: #fff;
+    scale: 1.1;
 }
+
+.download-btn.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 
 #alert {
-    line-height: 34px;    
+    line-height: 34px;
+    transition: all 0.3s ease;
 }
 
-/* Estilo do parágrafo de alerta */
 #doc p {
     display: none;
     color: red;
+    line-height: 37px;
 }
 
-/* Estilo do rodapé */
 #footer {
     position: fixed;
     bottom: 0;
@@ -183,30 +282,28 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
-/* Media queries para responsividade */
-@media (max-width: 520px) {
-    
-    #container {        
-        width: 90%;
-        box-shadow: none;
-        height: auto;        
+@media (max-width: 768px) {
+    body {
+        padding: 0 10px;
     }
-    
-    #content {
+
+    #container {
         width: 100%;
+        margin: 20px 0;
+        box-shadow: none;
         height: auto;
-        overflow-y: auto;        
+    }
+
+    #content {
+        overflow-y: auto;
     }
 
     #content p {
         text-indent: 10px;
         margin: 10px;
-    }
-
-    #alert {
-        line-height: 48px;    
     }
 
     .download-btn {
@@ -239,14 +336,14 @@ label {
         background-color: #4a3fc5c4;
         text-decoration: none;
         border-radius: 5px;
-        transition: background-color 0.3s;        
+        transition: all 0.3s ease;
         cursor: pointer;
         letter-spacing: 1px;
         justify-content: center;
     }
 
     #mensagem {
-        width: 90%;        
+        width: 100%;
     }
 
     #footer {
@@ -254,17 +351,17 @@ label {
     }
 
     #ANS {
-        display: none;     
+        display: none;
     }
 
     #ANS2 {
         display: inline-block;
         position: fixed;
-        bottom: 0px;       
+        bottom: 0px;
         margin-bottom: -5px;
         font-size: 8px;
-        font-weight: lighter;        
-        border-radius: 3px;        
+        font-weight: lighter;
+        border-radius: 3px;
         color: #fff;
         padding: 10px 3px;
         letter-spacing: 2px;
