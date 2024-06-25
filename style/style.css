@@ -106,18 +106,149 @@ body {
     align-items: center;
 }
 
+#mensagem h1 {
+    opacity: .9;
+}
+
+#mensagem h2 {
+    margin-bottom: 10px;
+    opacity: .7;
+}
+
 #mensagem p {
     margin-bottom: 10px;
     text-align: justify;
+    text-indent: 20px;
 }
+
+#mensagem h2 a {
+    text-decoration: none;
+    color: #111111;
+}
+
+#mensagem h2 a:hover {
+    text-decoration: underline;
+    color: #0c21da;
+}
+
+#confirma {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.checkbox-wrapper .cbx {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+}
+
+.checkbox-wrapper .cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper .cbx span:first-child {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #b9b8c3;
+    transition: all 0.2s ease;
+}
+
+.checkbox-wrapper .cbx span:first-child svg {
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    left: 6px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper .cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #506eec;
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+    transition-delay: 0.2s;
+}
+
+.checkbox-wrapper .cbx span:last-child:after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: #b9b8c3;
+    transform-origin: 0 0;
+    transform: scaleX(0);
+}
+
+.checkbox-wrapper .cbx:hover span:first-child {
+    border-color: #3c53c7;
+}
+
+.checkbox-wrapper .inp-cbx:checked+.cbx span:first-child {
+    border-color: #3c53c7;
+    background: #3c53c7;
+    animation: check-15 0.6s ease;
+}
+
+.checkbox-wrapper .inp-cbx:checked+.cbx span:first-child svg {
+    stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper .inp-cbx:checked+.cbx span:first-child:before {
+    transform: scale(2.2);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.checkbox-wrapper .inp-cbx:checked+.cbx span:last-child {
+    color: #b9b8c3;
+    transition: all 0.3s ease;
+}
+
+.checkbox-wrapper .inp-cbx:checked+.cbx span:last-child:after {
+    transform: scaleX(1);
+    transition: all 0.3s ease;
+}
+
+@keyframes check-15 {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
 
 #read-link {
     font-weight: normal;
     text-decoration: none;
     color: #111111;
     margin: 10px 0px;
-    width: 100%;
+    width: fit-content;
     text-align: center;
+    margin: 0px 25px 0px 5px;
+    cursor: text;
 }
 
 .button {
@@ -138,7 +269,13 @@ body {
     outline: none;
     overflow: hidden;
     font-size: 15px;
-    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.button.disabled2 {
+    pointer-events: none;
+    opacity: 0.3;
+    cursor: not-allowed;
 }
 
 .icon {
@@ -230,22 +367,85 @@ label {
     margin: 10px 0px;
 }
 
-.download-btn {
-    display: flex;
-    text-align: center;
-    width: 250px;
-    padding: 8px 30px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #4a3fc5e1;
-    background-color: #fff;
+.buttonDownload {
+    display: inline-block;
+    position: relative;
+    padding: 10px 25px;
+    background-color: #4a3fc5bb;
+    color: white;
+    font-family: sans-serif;
     text-decoration: none;
+    font-size: 0.9em;
+    text-align: center;
+    text-indent: 15px;
+    border: none;
     border-radius: 5px;
-    border: 1px solid #4a3fc5e1;
-    transition: all 0.3s ease-in;
-    cursor: pointer;
-    letter-spacing: 1px;
-    justify-content: center;
+    width: 250px;
+    transition: all 0.6s ease-in-out;
+}
+
+.buttonDownload:hover {
+    background-color: #4a3fc5;
+    color: white;
+}
+
+.buttonDownload:before,
+.buttonDownload:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 52%;
+}
+
+.buttonDownload:before {
+    width: 10px;
+    height: 2px;
+    border-style: solid;
+    border-width: 0 2px 2px;
+}
+
+.buttonDownload:after {
+    width: 0;
+    height: 0;
+    margin-left: 3px;
+    margin-top: -7px;
+    border-style: solid;
+    border-width: 4px 4px 0 4px;
+    border-color: transparent;
+    border-top-color: inherit;
+    animation: downloadArrow 1s linear infinite;
+    animation-play-state: paused;
+}
+
+.buttonDownload:hover:before {
+    border-color: #cdefbd;
+}
+
+.buttonDownload:hover:after {
+    border-top-color: #cdefbd;
+    animation-play-state: running;
+}
+
+@keyframes downloadArrow {
+    0% {
+        margin-top: -7px;
+        opacity: 1;
+    }
+
+    0.001% {
+        margin-top: -15px;
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: 0;
+        opacity: 0.4;
+    }
 }
 
 .download-btn:hover {
@@ -256,7 +456,7 @@ label {
 
 .download-btn.disabled {
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.3;
     cursor: not-allowed;
 }
 
@@ -288,6 +488,19 @@ label {
 @media (max-width: 768px) {
     body {
         padding: 0 10px;
+    }
+
+    #mensagem h2 {
+        text-align: justify;
+        font-size: 1.1rem;
+    }
+
+    #confirma {
+        flex-direction: column;
+    }
+
+    .checkbox-wrapper {
+        margin: 20px 0px;
     }
 
     #container {
@@ -322,28 +535,26 @@ label {
 
     #doc {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
+        align-self: center;
     }
 
-    .download-btn {
-        width: 50%;
-        padding: 10px 30px;
-        margin-bottom: 10px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #4a3fc5c4;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        letter-spacing: 1px;
-        justify-content: center;
-    }
-
-    #mensagem {
+    #doc a {
+        
         width: 100%;
+    }
+
+
+    .buttonDownload {
+        width: 80%;
+        margin: 0px 10px;
+    }
+
+    #mensagem {        
+
     }
 
     #footer {
