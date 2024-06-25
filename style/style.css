@@ -6,7 +6,7 @@
 }
 
 /* Estilo geral para body */
-body {
+body, html {
     font-family: Arial, sans-serif;
     height: 100vh;
     background: linear-gradient(135deg, #4b3fc5 0%, rgb(79, 145, 214) 100%);
