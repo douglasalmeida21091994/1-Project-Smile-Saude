@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Exemplo de função para obter o IP
 function getIP() {
-    let pegandoData = new Date();
+    let pegandoIP = new Date();
     let IP = "192.182.123.145";
     let carteirinha = "0656330.00";
     let cliente = "Douglas Almeida";
-    console.log(`Carteirinha: ${carteirinha} | Associado: ${cliente} | Endereço IP: ${IP} | Data: ${pegandoData}`);
+    console.log(`Carteirinha: ${carteirinha} | Associado: ${cliente} | Endereço IP: ${IP} | Data: ${pegandoIP}`);
 }
