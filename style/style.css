@@ -507,7 +507,7 @@ label {
 @media (max-width: 768px) {  
     
     body {
-        padding: 5px
+        padding: 15px 5px
     }
     #mensagem h2 {
         text-align: justify;
