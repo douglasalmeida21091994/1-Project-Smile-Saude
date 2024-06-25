@@ -486,10 +486,7 @@ label {
 }
 
 @media (max-width: 768px) {
-    body {
-        padding: 30px 10px;
-    }
-
+   
     #mensagem h2 {
         text-align: justify;
         font-size: 1.1rem;
@@ -500,14 +497,14 @@ label {
     }
 
     .checkbox-wrapper {
-        margin: 20px 0px;
+        margin: 10px 0px;
     }
 
     #container {
-        width: 100%;
-        margin: 20px 0;
+        width: 100%;        
         box-shadow: none;
         height: auto;
+        max-height: 100vh;
     }
 
     #content {
