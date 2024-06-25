@@ -451,8 +451,7 @@ label {
 
 .download-btn:hover {
     background-color: #4a3fc5;
-    color: #fff;
-    scale: 1.1;
+    color: #fff;    
 }
 
 .download-btn.disabled {
@@ -552,7 +551,11 @@ label {
     .buttonDownload {
         width: 80%;
         margin: 0px 10px;
-    }    
+    }   
+    
+    .download-btn:hover {
+        scale: none;
+    }
 
     #footer {
         display: none;
