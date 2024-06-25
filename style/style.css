@@ -511,7 +511,11 @@ label {
     }
     #mensagem h2 {
         text-align: justify;
-        font-size: 1.1rem;
+        font-size: 0.5rem;
+    }
+
+    #content h1 {
+        font-size: 1.3rem;
     }
 
     #content h2 {
