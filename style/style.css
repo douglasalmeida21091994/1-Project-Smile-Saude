@@ -6,7 +6,8 @@
 }
 
 /* Estilo geral para body */
-body, html {
+body,
+html {
     font-family: Arial, sans-serif;
     height: 100%;
     width: 100%;
@@ -15,17 +16,19 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Alterado de auto para hidden */    
+    overflow: hidden;
+    /* Alterado de auto para hidden */
 }
 
 /* Estilo do container principal */
 #container {
     max-width: 910px;
-    max-height: 100vh; /* Adicionado max-height */
+    max-height: 100vh;
+    /* Adicionado max-height */
     padding: 10px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);    
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     margin: 20px;
     display: none;
     flex-direction: column;
@@ -37,7 +40,7 @@ body, html {
 
 #container::before {
     content: "";
-    position: absolute;    
+    position: absolute;
     margin: 0 auto;
     width: 80%;
     height: 80%;
@@ -104,7 +107,7 @@ body, html {
 
 #mensagem h1 {
     opacity: .9;
-    
+
 }
 
 #mensagem h2 {
@@ -214,14 +217,14 @@ body, html {
 }
 
 .checkbox-wrapper .cbx:hover span:first-child {
-    border-color: #4a3fc5bb;    
+    border-color: #4a3fc5bb;
 }
 
 .checkbox-wrapper .inp-cbx:checked+.cbx span:first-child {
     border-color: #4a3fc5bb;
     background: #4a3fc5bb;
     animation: check-15 0.6s ease;
-    
+
 }
 
 .checkbox-wrapper .inp-cbx:checked+.cbx span:first-child svg {
@@ -246,7 +249,7 @@ body, html {
 
 @keyframes check-15 {
     50% {
-        transform: scale(1.2);        
+        transform: scale(1.2);
     }
 }
 
@@ -340,8 +343,8 @@ body, html {
 
 #content {
     text-align: center;
-    height: auto;    
-    padding-top: 15px;
+    height: auto;
+    padding: 15px;
 }
 
 #content h1 {
@@ -353,19 +356,24 @@ body, html {
 #content h2 {
     opacity: .7;
     font-size: 1.2rem;
-    margin: 5px;
-} 
+    margin: 15px 0;
+}
 
 #content p {
     text-align: justify;
     text-indent: 20px;
-    margin: 5px;
+    margin-bottom: 10px;
     transition: all 0.3s ease;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    line-height: 25px;
 }
 
 #confirmacao {
     width: 100%;
-    text-align: center;
+    display: flex;
+    gap: 10px;
+    text-align: start;
     margin-bottom: 10px;
     transition: all 0.3s ease;
 }
@@ -399,12 +407,14 @@ label {
     border-radius: 5px;
     width: 250px;
     cursor: pointer;
-    transition: all 0.6s ease-in-out;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
 }
 
 .buttonDownload:hover {
     background-color: #4a3fc5;
     color: white;
+    transform: scale(1.05);
 }
 
 .buttonDownload:before,
@@ -413,7 +423,8 @@ label {
     display: block;
     position: absolute;
     left: 15px;
-    top: 52%;
+    top: 50%;
+    z-index: -1;
 }
 
 .buttonDownload:before {
@@ -421,6 +432,8 @@ label {
     height: 2px;
     border-style: solid;
     border-width: 0 2px 2px;
+    border-color: transparent;
+    transition: all 0.3s ease;
 }
 
 .buttonDownload:after {
@@ -434,10 +447,11 @@ label {
     border-top-color: inherit;
     animation: downloadArrow 1s linear infinite;
     animation-play-state: paused;
+    transition: all 0.3s ease;
 }
 
 .buttonDownload:hover:before {
-    border-color: #cdefbd;
+    border-color: #cdefbd; 
 }
 
 .buttonDownload:hover:after {
@@ -468,7 +482,7 @@ label {
 
 .download-btn:hover {
     background-color: #4a3fc5;
-    color: #fff;    
+    color: #fff;
 }
 
 .download-btn.disabled {
@@ -502,38 +516,47 @@ label {
     transition: all 0.3s ease;
 }
 
-@media (max-width: 813px) {  
-    
+@media (max-width: 813px) {
+
     body {
-        padding: 25px 5px;
+        padding: 0px;
+    }
+
+    #mensagem {
+        margin: 0px 10px;
+    }
+
+    #mensagem h1 {
+        font-size: 1.3rem;
+    }
+
+    #mensagem h2 {
+        font-size: 1rem;
+        text-align: justify; 
     }
 
     #smile h2 {
-        font-size: 14px;
-    }
-
-    #mensagem p {
-        font-size: 15px;
-    }
-  
+        font-size: 1rem;
+    }    
 
     #smile p {
         font-size: 15px;
     }
-  
+    
     #content h1 {
-        font-size: 1.4rem;
+        font-size: 1.4rem;        
     }
 
     #content h2 {
-        font-size: 14px;
-        text-align: justify;
+        font-size: 1rem;  
+        text-align: justify;      
     }
 
-    #content p {        
+    #content p {
         margin: 10px;
         font-size: 14px;
         line-height: 20px;
+        text-align: justify;
     }
 
     #confirma {
@@ -541,12 +564,12 @@ label {
     }
 
     #container {
-        width: 100%;        
+        width: 100%;
         box-shadow: none;
-        height: 100%;        
-        overflow-y: auto;           
-        margin: 40px 0px 40px 0px;
-        padding-top: 80px;
+        height: 100dvh;
+        overflow-y: auto;
+        margin: 0px;
+        /* padding-top: 80px; */
     }
 
     .download-btn {
@@ -557,7 +580,7 @@ label {
 
     .download-btn:hover {
         background-color: #4a3fc5;
-        color: #fff;    
+        color: #fff;
     }
 
     #confirmacao {
@@ -578,19 +601,18 @@ label {
     }
 
     #doc a {
-        
-        width: 100%;
-    }
 
+        width: 80%;
+    }
 
     .buttonDownload {
         width: 80%;
         margin: 0px 10px;
-    }    
+    }
 
     .button {
         margin: 10px 0px;
-    }
+    }    
 
     #footer {
         display: none;
